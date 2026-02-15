@@ -23,4 +23,4 @@ submitElem.onclick = async () => {
 };
 
 let model;
-load_model().then((e) => model = e, (e) => console.error(e));
+load_model("model/model.json").then((e) => model = e, (e) => console.error(e));
