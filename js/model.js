@@ -1,6 +1,6 @@
 async function load_model() {
     tf.setBackend("cpu");
-    return await tf.loadLayersModel("https://raw.githubusercontent.com/Toastr07/bisi-web/refs/heads/main/model/model.json");
+    return await tf.loadLayersModel("model/model.json");
 }
 
 async function predict(model, img) {
@@ -14,3 +14,4 @@ async function predict(model, img) {
     conf = pred[digit] * 100;
     return [digit, conf];
 }
+
