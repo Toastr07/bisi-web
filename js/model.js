@@ -1,6 +1,6 @@
-async function load_model() {
+async function load_model(path) {
     tf.setBackend("cpu");
-    return await tf.loadLayersModel("model/model.json");
+    return await tf.loadLayersModel(path);
 }
 
 async function predict(model, img) {
@@ -14,4 +14,5 @@ async function predict(model, img) {
     conf = pred[digit] * 100;
     return [digit, conf];
 }
+
 
