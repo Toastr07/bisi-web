@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BISI</title>
+    <link rel="icon" href="img/icon.ico">
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="assets/js/opencv.js"></script>
+</head>
+<body>
+    <main>
+        <p>Drawing area:</p>
+
+        <canvas id="canvas" width="512" height="512"></canvas>
+
+        <p>Prediction: <span id="pred">None</span></p>
+        <p>Confidence: <span id="conf">None</span></p>
+    </main>
+
+    <button id="submitButton" name="submit">Submit</button>
+    <button id="clearButton" name="clear">Clear</button>
+
+    <script src="js/utils.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

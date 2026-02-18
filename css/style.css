@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+main {
+    width: 60%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+}
+p {
+    margin: 0.4em;
+}
+#canvas {
+    border: 3px solid white;
+    background-color: black;
+}
+button {
+    position: fixed;
+    width: 200px;
+    padding: 0.3em;
+    border: 3px solid white;
+    border-radius: 30px;
+    font: inherit;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #3c3c3c;
+}
+button:active {
+    transform: scale(0.95);
+}
+#clearButton {
+    right: 3%;
+    bottom: 3%;
+}
+#submitButton {
+    right: 3%;
+    bottom: 14%;
+}
