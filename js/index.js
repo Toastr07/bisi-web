@@ -72,4 +72,5 @@ submitElem.onclick = async () => {
 
 // Load model
 let model;
-load_model("https://raw.githubusercontent.com/Toastr07/bisi-web/refs/heads/main/model/model.json").then((e) => model = e, (e) => console.error(e));
+load_model("model/model.json").then((e) => model = e, (e) => console.error(e));
+
