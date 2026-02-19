@@ -32,6 +32,7 @@ endPaint = () => {
 };
 
 document.body.addEventListener("mousedown", () => {mouseDown = true; isPainting=true;});
+
 document.body.addEventListener("mouseup", () => {mouseDown = false; endPaint();});
 
 canvasElem.addEventListener("pointerleave", () => endPaint());
@@ -50,13 +51,13 @@ canvasElem.addEventListener("touchmove", (e) => {
     canvas.dispatchEvent(event);
 });
 
-document.body.addEventListener("touchstart", (e) => {
-    let event = new MouseEvent("mousedown", { clientX: e.clientX, clientY: e.clientY });
+document.body.addEventListener("touchstart", () => {
+    let event = new MouseEvent("mousedown", {});
     document.body.dispatchEvent(event);
 });
 
-document.body.addEventListener("touchend", (e) => {
-    let event = new MouseEvent("mousedown", { clientX: e.clientX, clientY: e.clientY });
+document.body.addEventListener("touchend", () => {
+    let event = new MouseEvent("mouseup", {});
     document.body.dispatchEvent(event);
 });
 
