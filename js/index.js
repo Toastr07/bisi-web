@@ -31,8 +31,8 @@ endPaint = () => {
     ctx.beginPath();
 };
 
-document.body.onmousedown = (e) => {mouseDown = true; isPainting=true;};
-document.body.onmouseup = () => {mouseDown = false; endPaint();};
+document.body.addEventListener("mousedown", () => {mouseDown = true; isPainting=true;});
+document.body.addEventListener("mouseup", () => {mouseDown = false; endPaint();});
 
 canvasElem.addEventListener("pointerleave", () => endPaint());
 canvasElem.addEventListener("pointerenter", () => isPainting = mouseDown);
@@ -45,8 +45,20 @@ canvasElem.addEventListener("mousemove", (e) => {
 });
 
 canvasElem.addEventListener("touchmove", (e) => {
-    event = new MouseEvent("mousemove", { clientX: e.clientX, clientY: e.clientY })
-    canvas.dispatch(event);
+    let touch = e.touches[0];
+    let event = new MouseEvent("mousemove", { clientX: touch.clientX, clientY: touch.clientY });
+    canvas.dispatchEvent(event);
+});
+
+document.body.addEventListener("touchstart", (e) => {
+    let event = new MouseEvent("mousedown", { clientX: e.clientX, clientY: e.clientY });
+    document.body.dispatchEvent(event);
+});
+
+document.body.addEventListener("touchend", (e) => {
+    let event = new MouseEvent("mousedown", { clientX: e.clientX, clientY: e.clientY });
+    document.body.dispatchEvent(event);
+});
 
 // Clear button
 clearElem.onclick = () => {
