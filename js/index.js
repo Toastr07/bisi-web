@@ -44,6 +44,10 @@ canvasElem.addEventListener("mousemove", (e) => {
     ctx.stroke();
 });
 
+canvasElem.addEventListener("touchmove", (e) => {
+    event = new MouseEvent("mousemove", { clientX: e.clientX, clientY: e.clientY })
+    canvas.dispatch(event);
+
 // Clear button
 clearElem.onclick = () => {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
