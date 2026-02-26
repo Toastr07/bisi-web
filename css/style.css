@@ -10,22 +10,22 @@ body {
     background-color: black;
 }
 main {
-    width: 60%;
-    height: 100vh;
-    overflow: hidden;
     margin: 0 auto;
 }
 p {
     margin: 0.4em;
 }
 #canvas {
+    max-width: 90%;
     border: 3px solid white;
     background-color: black;
 }
 button {
-    position: fixed;
+    display: block;
     width: 200px;
+    max-width: 100%;
     padding: 0.3em;
+    margin: 0.8em auto;
     border: 3px solid white;
     border-radius: 30px;
     font: inherit;
@@ -39,11 +39,15 @@ button:hover {
 button:active {
     transform: scale(0.95);
 }
-#clearButton {
-    right: 3%;
-    bottom: 3%;
-}
-#submitButton {
-    right: 3%;
-    bottom: 14%;
+@media (min-width: 1000px) {
+    #clearButton {
+        position: fixed;
+        right: 30px;
+        bottom: 0px;
+    }
+    #submitButton {
+        position: fixed;
+        right: 30px;
+        bottom: 80px;
+    }
 }

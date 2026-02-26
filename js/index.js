@@ -8,13 +8,16 @@ const predElem = document.getElementById("pred");
 const confElem = document.getElementById("conf");
 
 // Canvas logic
+canvasElem.width = canvasElem.clientWidth;
+canvasElem.height = canvasElem.width;
+
 const ctx = canvasElem.getContext("2d", { willReadFrequently: true });
 const canvasOffsetX = canvasElem.offsetLeft;
 const canvasOffsetY = canvasElem.offsetTop;
 const canvasWidth = canvasElem.width;
 const canvasHeight = canvasElem.height;
 
-const lineWidth = 20;
+const lineWidth = Math.round(canvasWidth / 25);
 let isPainting = false;
 let mouseDown = false;
 let startX;
@@ -90,5 +93,4 @@ submitElem.onclick = async () => {
 
 // Load model
 let model;
-load_model("model/model.json").then((e) => model = e, (e) => console.error(e));
-
+load_model("https://raw.githubusercontent.com/Toastr07/bisi-web/refs/heads/main/model/model.json").then((e) => model = e, (e) => console.error(e));
