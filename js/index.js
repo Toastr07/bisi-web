@@ -53,6 +53,7 @@ canvasElem.addEventListener("touchmove", (e) => {
     let touch = e.touches[0];
     let event = new MouseEvent("mousemove", { clientX: touch.clientX, clientY: touch.clientY });
     canvas.dispatchEvent(event);
+    e.preventDefault();
 });
 
 document.body.addEventListener("touchstart", () => {
