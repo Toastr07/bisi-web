@@ -54,7 +54,7 @@ canvasElem.addEventListener("touchmove", (e) => {
     let event = new MouseEvent("mousemove", { clientX: touch.clientX, clientY: touch.clientY });
     canvas.dispatchEvent(event);
     e.preventDefault();
-});
+}, { passive: false });
 
 document.body.addEventListener("touchstart", () => {
     let event = new MouseEvent("mousedown", {});
@@ -95,4 +95,5 @@ submitElem.onclick = async () => {
 // Load model
 let model;
 load_model("model/model.json").then((e) => model = e, (e) => console.error(e));
+
 
