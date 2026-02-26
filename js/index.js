@@ -31,9 +31,10 @@ endPaint = () => {
     ctx.beginPath();
 };
 
-document.body.addEventListener("mousedown", () => {mouseDown = true; isPainting=true;});
+document.body.onmousedown = (e) => {mouseDown = true; isPainting=true;};
+document.body.onmouseup = () => {mouseDown = false; endPaint();};
 
-document.body.addEventListener("mouseup", () => {mouseDown = false; endPaint();});
+window.addEventListener('resize', () => location.reload());
 
 canvasElem.addEventListener("pointerleave", () => endPaint());
 canvasElem.addEventListener("pointerenter", () => isPainting = mouseDown);
@@ -43,22 +44,6 @@ canvasElem.addEventListener("mousemove", (e) => {
 
     ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
     ctx.stroke();
-});
-
-canvasElem.addEventListener("touchmove", (e) => {
-    let touch = e.touches[0];
-    let event = new MouseEvent("mousemove", { clientX: touch.clientX, clientY: touch.clientY });
-    canvas.dispatchEvent(event);
-});
-
-document.body.addEventListener("touchstart", () => {
-    let event = new MouseEvent("mousedown", {});
-    document.body.dispatchEvent(event);
-});
-
-document.body.addEventListener("touchend", () => {
-    let event = new MouseEvent("mouseup", {});
-    document.body.dispatchEvent(event);
 });
 
 // Clear button
@@ -89,5 +74,4 @@ submitElem.onclick = async () => {
 
 // Load model
 let model;
-load_model("model/model.json").then((e) => model = e, (e) => console.error(e));
-
+load_model("https://raw.githubusercontent.com/Toastr07/bisi-web/refs/heads/main/model/model.json").then((e) => model = e, (e) => console.error(e));
